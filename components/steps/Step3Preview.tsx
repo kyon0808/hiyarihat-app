@@ -112,23 +112,19 @@ export default function Step3Preview({ data, onChange, onBack, onSubmit }: Props
           ← 戻る
         </button>
         <button
-          onClick={() => printReport(data)}
-          className="flex-[2] py-4 bg-green-600 text-white font-bold rounded-xl text-base hover:bg-green-700 transition-colors"
+          onClick={() => {
+            printReport(data)
+            onSubmit()
+          }}
+          className="flex-[2] py-4 bg-blue-600 text-white font-bold rounded-xl text-base hover:bg-blue-700 transition-colors"
         >
-          PDFを印刷・保存
+          PDFに保存して提出
         </button>
       </div>
 
       <p className="text-xs text-center text-gray-400">
-        印刷ダイアログで「PDFに保存」を選択するとPDF出力できます
+        印刷ダイアログで「PDFに保存」を選択するとローカルに保存できます
       </p>
-
-      <button
-        onClick={onSubmit}
-        className="w-full py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors"
-      >
-        提出する（完了）
-      </button>
     </div>
   )
 }
